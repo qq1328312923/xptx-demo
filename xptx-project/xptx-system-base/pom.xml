@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xyw.code</groupId>
+        <artifactId>xptx-project</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>com.xyw.code</groupId>
+    <artifactId>xptx-system-base</artifactId>
+    <version>1.0.0</version>
+    <name>xptx-system-base</name>
+    <packaging>pom</packaging>
+    <description>prex-system-base 通用用户权限管理聚合模块</description>
+
+    <modules>
+        <module>xptx-system-base-api</module>
+    </modules>
+
+</project>
