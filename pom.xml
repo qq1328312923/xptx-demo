@@ -29,6 +29,8 @@
 
     <modules>
         <module>xptx-project</module>
+        <module>xptx-common</module>
+
     </modules>
 
     <dependencyManagement>

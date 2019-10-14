@@ -18,15 +18,31 @@
     <properties>
         <java.version>1.8</java.version>
         <mybatis-plus.version>3.1.1</mybatis-plus.version>
-        <prex.version>1.0.0</prex.version>
+        <xptx.version>1.0.0</xptx.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.xyw.code</groupId>
             <artifactId>xptx-system-base-api</artifactId>
-            <version>1.0.0</version>
+            <version>${xptx.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <!--prex核心包-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-core</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-swagger</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-data</artifactId>
+            <version>${xptx.version}</version>
         </dependency>
         <!--undertow容器-->
         <dependency>
@@ -45,16 +61,16 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
-        <!--nacos注册中心-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-        <!--nacos配置中心客户端-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+<!--        &lt;!&ndash;nacos注册中心&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash;nacos配置中心客户端&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -62,11 +78,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>5.1.9.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
