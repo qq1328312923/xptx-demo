@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xyw.code</groupId>
+        <artifactId>xptx</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <groupId>com.xyw.code</groupId>
+    <artifactId>xptx-auth</artifactId>
+    <version>1.0.0</version>
+    <name>xptx-auth</name>
+    <description>xptx 授权模块</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <xptx.version>1.0.0</xptx.version>
+        <spring-social.version>1.1.6.RELEASE</spring-social.version>
+    </properties>
+
+    <dependencies>
+        <!--base feign、model 模块-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-system-base-api</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <!--redis模块-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-redis</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-swagger</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-auth</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <!--prex核心包-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-core</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <!--缓存-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-redis</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <!--nacos注册中心-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--nacos配置中心客户端-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- 数据库 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
