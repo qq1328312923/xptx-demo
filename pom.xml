@@ -13,7 +13,7 @@
 
     <properties>
         <spring-boot.version>2.1.8.RELEASE</spring-boot.version>
-        <spring-cloud-alibaba.version>2.1.0.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>0.2.2.RELEASE</spring-cloud-alibaba.version>
         <spring-boot-admin.version>2.1.6</spring-boot-admin.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <java.version>1.8</java.version>
@@ -30,6 +30,7 @@
     <modules>
         <module>xptx-project</module>
         <module>xptx-common</module>
+        <module>xptx-gateway</module>
 
     </modules>
 
@@ -53,24 +54,13 @@
             </dependency>
             <!--spring cloud alibaba依赖-->
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--            <dependency>-->
-            <!--                <groupId>de.codecentric</groupId>-->
-            <!--                <artifactId>spring-boot-admin-dependencies</artifactId>-->
-            <!--                <version>${spring-boot-admin.version}</version>-->
-            <!--                <type>pom</type>-->
-            <!--                <scope>import</scope>-->
-            <!--            </dependency>-->
-            <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${nacos-client.version}</version>
-            </dependency>
+
             <!--web依赖-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -83,6 +73,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -121,7 +112,11 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
+        <!--断路器依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

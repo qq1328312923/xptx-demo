@@ -6,6 +6,8 @@ import com.xyw.code.base.server.mapper.SysMenuMapper;
 import com.xyw.code.base.server.service.ISysMenuService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 菜单权限表 服务实现类
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService {
 
+    @Override
+    public List<String> findPermsByUserId(Integer userId) {
+        return baseMapper.findPermsByUserId(userId);
+    }
 }

@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 用户角色表 前端控制器
  * </p>
  *
- * @author jobob
+ * @author xuyiwei
  * @since 2019-10-12
  */
 @Controller
-@RequestMapping("/api/sys-user-role")
+@RequestMapping("/sys-user-role")
 public class SysUserRoleController {
 
 }

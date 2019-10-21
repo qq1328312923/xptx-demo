@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.xyw.code.redis.config.RedisConfig,\
+  com.xyw.code.redis.util.XptxRedisUtil

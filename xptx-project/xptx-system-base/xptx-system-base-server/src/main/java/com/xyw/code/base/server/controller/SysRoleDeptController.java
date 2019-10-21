@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 角色与部门对应关系 前端控制器
  * </p>
  *
- * @author jobob
+ * @author xuyiwei
  * @since 2019-10-12
  */
 @Controller
-@RequestMapping("/api/sys-role-dept")
+@RequestMapping("/sys-role-dept")
 public class SysRoleDeptController {
 
 }

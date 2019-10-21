@@ -6,6 +6,8 @@
         <module>xptx-common-core</module>
         <module>xptx-common-swagger</module>
         <module>xptx-common-data</module>
+        <module>xptx-common-redis</module>
+        <module>xptx-common-auth</module>
     </modules>
     <parent>
         <groupId>com.xyw.code</groupId>

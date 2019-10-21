@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 角色菜单表 前端控制器
  * </p>
  *
- * @author jobob
+ * @author xuyiwei
  * @since 2019-10-12
  */
 @Controller
-@RequestMapping("/api/sys-role-menu")
+@RequestMapping("/sys-role-menu")
 public class SysRoleMenuController {
 
 }

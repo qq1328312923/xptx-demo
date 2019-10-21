@@ -1,0 +1,14 @@
+server:
+  port: 8003
+spring:
+  application:
+    name: xptx-system-base-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+  profiles:
+    active: dev
