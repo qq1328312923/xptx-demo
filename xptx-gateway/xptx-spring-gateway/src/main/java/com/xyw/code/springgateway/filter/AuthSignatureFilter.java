@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 //import com.xyw.code.authclient.service.IAuthService;
 //import com.xyw.code.authclient.service.IAuthService;
 import com.xyw.code.authclient.service.IAuthService;
+import com.xyw.code.core.constant.XptxConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -32,6 +33,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Component
 public class AuthSignatureFilter implements GlobalFilter, Ordered {
+
 
     /**
      * 由authentication-client模块提供签权的feign客户端
@@ -77,17 +79,15 @@ public class AuthSignatureFilter implements GlobalFilter, Ordered {
         }
         //调用鉴权服务看看是否有权限
         //调用签权服务看用户是否有权限，若有权限进入下一个filter
-        if (!authService.hasPermission(token, url, method)) {
-            log.debug("url:{},method:{},headers:{},请求没有权限",url,method,request.getHeaders());
-            return unauthorized(exchange);
+        if (authService.hasPermission(token, url, method)) {
+            //并且在请求头加入用户信息
+            ServerHttpRequest.Builder builder = request.mutate();
+            builder.header(XptxConstant.XPTX_CLIENT_TOKEN, "TODO 添加服务间简单认证");
+            builder.header(XptxConstant.XPTX_CLIENT_TOKEN_USER, authService.getJwt(token).getClaims());
+            return chain.filter(exchange.mutate().request(builder.build()).build());
         }
-
-//        ServerHttpRequest authorization = request.mutate().headers(httpHeaders -> {
-//            httpHeaders.add("Authorization", token);
-//        }).build();
-//        ServerWebExchange serverWebExchange = exchange.mutate().request(authorization).build();
-        ServerWebExchange serverWebExchange = exchange.mutate().build();
-        return chain.filter(serverWebExchange);
+        log.debug("url:{},method:{},headers:{},请求没有权限",url,method,request.getHeaders());
+        return unauthorized(exchange);
     }
 
 

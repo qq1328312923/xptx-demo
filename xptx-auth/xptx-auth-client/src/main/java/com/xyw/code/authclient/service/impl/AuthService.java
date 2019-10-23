@@ -37,7 +37,7 @@ public class AuthService implements IAuthService {
      * 不需要网关签权的url配置(/oauth,/open)
      * 默认/oauth开头是不需要的
      */
-//    @Value("${gate.ignore.authentication.startWith}")
+//    @Value("${Valuegate.ignore.authentication.startWith}")
     private String ignoreUrls = "/oauth,/open";
     /**
      * jwt验签
@@ -60,6 +60,13 @@ public class AuthService implements IAuthService {
         return authResult.isSuccess() && (boolean) authResult.getData();
     }
 
+    /**
+     * 主要的入口方法
+     * @param token
+     * @param url
+     * @param method
+     * @return
+     */
     @Override
     public boolean hasPermission(String token, String url, String method) {
         //token是否有效
@@ -76,11 +83,12 @@ public class AuthService implements IAuthService {
         verifier = Optional.ofNullable(verifier).orElse(new MacSigner(signingKey));
         //是否无效true表示无效
         boolean invalid = Boolean.TRUE;
-
         try {
             Jwt jwt = getJwt(token);
             jwt.verifySignature(verifier);
             invalid = Boolean.FALSE;
+            //如果要解析里面的数据的话
+            //JSONObject.parseObject(jwt.getClaims());
         } catch (InvalidSignatureException | IllegalArgumentException ex) {
             log.warn("user token has expired or signature error ");
         }

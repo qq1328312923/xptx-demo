@@ -26,8 +26,14 @@ public class XptxConstant implements Serializable {
      */
     public static final String XPTX_IMAGE_KEY = "XPTX_IMAGE_KEY";
 
-
-
+    /**
+     * 网关转发请求带的token解析出来的用户数据
+     */
+    public static String XPTX_CLIENT_TOKEN_USER = "x-client-token-user";
+    /**
+     * 网关转发请求带的 TODO 添加服务间简单认证
+     */
+    public static String XPTX_CLIENT_TOKEN = "x-client-token";
 
     public static final String LOGIN_QQ = "qq";
     public static final String LOGIN_WEIXIN = "weixin";

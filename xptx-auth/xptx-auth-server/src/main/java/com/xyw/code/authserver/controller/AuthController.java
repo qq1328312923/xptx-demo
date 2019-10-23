@@ -2,10 +2,7 @@ package com.xyw.code.authserver.controller;
 
 import com.xyw.code.core.utils.R;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,8 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 public class AuthController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/auth/permission")
-    public R<Boolean> decide(@RequestParam String url, @RequestParam String method, HttpServletRequest request) {
-       log.info("url:{},method:{}",url,method);
+    public R<Boolean> decide(@RequestHeader("Authorization")String token , @RequestParam String url, @RequestParam String method, HttpServletRequest request) {
+       log.info("token:{},url:{},method:{}",token,url,method);
+       //TODO 这里走逻辑去盘这个用户有没有权限
+
        return R.ok(true);
     }
 }
