@@ -1,0 +1,83 @@
+spring:
+  redis:
+    database: 1
+    host: 101.132.64.80
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 30000ms
+        min-idle: 1
+    password: Aa123456
+    port: 6379
+    timeout: 6000ms
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-test-query: SELECT 1
+      max-lifetime: 30000
+      maximum-pool-size: 10
+      minimum-idle: 3
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/pre_2?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  main:
+    allow-bean-definition-overriding: true
+
+ribbon:
+  ReadTimeout: 6000
+  ConnectTimeout: 6000
+
+
+prex:
+  social:
+    gitee:
+      app-id: 663221d0507f284b2265b7b8d95a9c1293bdd5adc7b4a35c9748fd3875746e67
+      app-secret: 411f5eeabb0365664fc2e82ed735ec688152127838ad145159f19c90170ebde1
+      provider-id: gitee
+      redirect_uri: http://localhost:8000/user/login
+    github:
+      app-id: 0e4b224d9c629ce3f3ea
+      app-secret: 31fc9751b005f5e40113fc3f07b5beae0a7dad25
+      provider-id: github
+    qq:
+      app-id: 101715108
+      app-secret: 453e1be400a9cf207fea273f0d2c6248
+      provider-id: qq
+    weixin:
+      app-id: wx7e9de00d03485f3e
+      app-secret: b62bc9fe9adf7d9736a7a91d946177fd
+      provider-id: weixin
+  sms:
+    aliyun:
+      access-key-id: LTAI6RRoUOP2Zfxs
+      access-key-secret: I9BXcxj1nicmMOVJ9tFRqo8thFWaDQ
+      type: aliyun
+
+  #前端地址
+pre:
+  url:
+    address: http://localhost:9528
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+#请求和响应GZIP压缩支持
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  hystrix:
+    enabled: true
+
+#logging:
+#  level:
+#    org.springframework: DEBUG

@@ -1,0 +1,71 @@
+spring:
+  # 允许自定义的bean覆盖  自己生成的redisTemplate会把自动注入的覆盖
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        #        基础服务
+        - id: xptx-system-base-server
+          # lb代表从注册中心获取服务，且已负载均衡方式转发
+          uri: lb://xptx-system-base-server
+          predicates: # 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果
+            - Path=/sys/**
+          filters:
+            - SwaggerHeaderFilter
+            - StripPrefix=1
+            # 降级配置
+            - name: Hystrix
+              args:
+                name: fallback
+                fallbackUri: forward:/fallback
+        #        授权服务
+        - id: xptx-auth
+          uri: http://localhost:8001
+          predicates:
+            - Path=/auth/**
+          filters:
+            - ImageCodeFilter
+            - RemoveRequestHeader=Origin
+            - StripPrefix=1
+            # 降级配置
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: forward:/fallback
+  redis:
+    database: 1
+    host: 127.0.01
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 30000ms
+        min-idle: 1
+    password:
+    port: 6379
+    timeout: 6000ms
+# logging:
+#   level:
+#     org.springframework.cloud.gateway: debug
+
+# hystrix 信号量隔离，5秒后自动超时
+hystrix:
+  command:
+    default:  #default全局有效，feign id指定应用有效
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            timeoutInMilliseconds: 5000 #断路器超时时间，默认1000ms

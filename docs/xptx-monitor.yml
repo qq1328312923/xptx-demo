@@ -1,0 +1,25 @@
+spring:        
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+  redis:
+    database: 1
+    host: 101.132.64.80
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 30000ms
+        min-idle: 1
+    password: Aa123456
+    port: 6379
+    timeout: 6000ms
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

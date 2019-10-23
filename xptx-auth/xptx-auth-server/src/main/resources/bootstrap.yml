@@ -1,0 +1,14 @@
+server:
+  port: 8001
+spring:
+  profiles:
+    active: dev
+  application:
+    name: xptx-auth1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml

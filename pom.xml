@@ -31,6 +31,8 @@
         <module>xptx-project</module>
         <module>xptx-common</module>
         <module>xptx-gateway</module>
+        <module>xptx-auth</module>
+        <module>xptx-gateway</module>
 
     </modules>
 
