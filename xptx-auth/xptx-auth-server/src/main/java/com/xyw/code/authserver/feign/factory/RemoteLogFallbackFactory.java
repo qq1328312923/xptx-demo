@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RemoteLogFallbackFactory implements FallbackFactory<RemoteUserService> {
 
-    @Override
+        @Override
     public RemoteUserService create(Throwable throwable) {
         return new RemoteLogFallbackImpl(throwable);
     }

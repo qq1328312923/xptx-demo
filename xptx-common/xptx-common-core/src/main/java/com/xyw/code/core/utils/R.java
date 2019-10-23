@@ -51,4 +51,11 @@ public class R<T> implements Serializable {
     }
 
 
+    public boolean isSuccess() {
+        if(code==200){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

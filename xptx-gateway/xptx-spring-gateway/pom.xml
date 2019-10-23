@@ -17,6 +17,7 @@
 		<java.version>1.8</java.version>
 		<swagger2.version>2.8.0</swagger2.version>
 		<xptx.version>1.0.0</xptx.version>
+		<spring-boot.version>2.1.8.RELEASE</spring-boot.version>
 	</properties>
 
 
@@ -55,6 +56,11 @@
 		<dependency>
 			<groupId>com.xyw.code</groupId>
 			<artifactId>xptx-common-redis</artifactId>
+			<version>${xptx.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xyw.code</groupId>
+			<artifactId>xptx-auth-client</artifactId>
 			<version>${xptx.version}</version>
 		</dependency>
 	</dependencies>

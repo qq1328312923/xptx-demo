@@ -1,7 +1,11 @@
 package com.xyw.code.springgateway.filter;
 
 import com.alibaba.fastjson.JSONObject;
+//import com.xyw.code.authclient.service.IAuthService;
+//import com.xyw.code.authclient.service.IAuthService;
+import com.xyw.code.authclient.service.IAuthService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -28,6 +32,12 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Component
 public class AuthSignatureFilter implements GlobalFilter, Ordered {
+
+    /**
+     * 由authentication-client模块提供签权的feign客户端
+     */
+    @Autowired
+    private IAuthService authService;
 
     // 排除过滤的 uri 地址
     private static final String[] WHITE_LIST =
@@ -66,7 +76,11 @@ public class AuthSignatureFilter implements GlobalFilter, Ordered {
             return unauthorized(exchange);
         }
         //调用鉴权服务看看是否有权限
-
+        //调用签权服务看用户是否有权限，若有权限进入下一个filter
+        if (!authService.hasPermission(token, url, method)) {
+            log.debug("url:{},method:{},headers:{},请求没有权限",url,method,request.getHeaders());
+            return unauthorized(exchange);
+        }
 
 //        ServerHttpRequest authorization = request.mutate().headers(httpHeaders -> {
 //            httpHeaders.add("Authorization", token);

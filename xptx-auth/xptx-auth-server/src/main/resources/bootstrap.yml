@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
   application:
-    name: xptx-auth1
+    name: xptx-auth-server
   cloud:
     nacos:
       discovery:

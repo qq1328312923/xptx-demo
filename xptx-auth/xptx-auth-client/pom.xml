@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xptx-auth</artifactId>
+        <groupId>com.xyw.code</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>xptx-auth-client</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <xptx.version>1.0.0</xptx.version>
+    </properties>
+
+    <dependencies>
+        <!--oauth2认证 只需要认证  如果引入认证模块 会导致网关所有请求都被拦截-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-jwt</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!--缓存-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-core</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <!--缓存-->
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-redis</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>
