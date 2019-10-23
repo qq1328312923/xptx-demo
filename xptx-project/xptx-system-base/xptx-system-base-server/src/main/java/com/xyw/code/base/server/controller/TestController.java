@@ -14,6 +14,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,7 +35,7 @@ public class TestController {
     @Autowired
     private SysUserMapper sysUserMapper;
 
-    @PostMapping("/test")
+    @GetMapping("/test")
     @ResponseBody
     @ApiOperation(value = "测试用例",notes = "测试用例")
     @ApiResponses(value = {
