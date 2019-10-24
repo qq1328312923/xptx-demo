@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <packaging>pom</packaging>
     <parent>
         <groupId>com.xyw.code</groupId>
         <artifactId>xptx</artifactId>
@@ -12,6 +11,7 @@
     <artifactId>xptx-auth</artifactId>
     <version>1.0.0</version>
     <name>xptx-auth</name>
+    <packaging>pom</packaging>
     <description>xptx 授权模块</description>
 
     <properties>
@@ -22,14 +22,5 @@
         <module>xptx-auth-server</module>
         <module>xptx-auth-client</module>
     </modules>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

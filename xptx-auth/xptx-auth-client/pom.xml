@@ -6,6 +6,7 @@
         <artifactId>xptx-auth</artifactId>
         <groupId>com.xyw.code</groupId>
         <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.xyw.code</groupId>
     <artifactId>xptx-auth-client</artifactId>
@@ -50,19 +51,16 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>javax.servlet</groupId>-->
-        <!--            <artifactId>javax.servlet-api</artifactId>-->
-        <!--        </dependency>-->
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <!-- 这里要注意  因为这个插件如果在的话  maven打包会认为他是一个独立的springboot项目  会导致别的项目引用不到这个包里面的类  -->
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>

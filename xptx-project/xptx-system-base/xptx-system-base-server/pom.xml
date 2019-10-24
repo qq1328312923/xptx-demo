@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.xyw.code</groupId>
     <artifactId>xptx-system-base-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>xptx-system-base-server</name>
     <packaging>jar</packaging>
     <description>prex 通用用户权限管理系统业务处理模块</description>
@@ -28,10 +28,15 @@
             <version>${xptx.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!--prex核心包-->
+        <!--xptx核心包-->
         <dependency>
             <groupId>com.xyw.code</groupId>
             <artifactId>xptx-common-core</artifactId>
+            <version>${xptx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xyw.code</groupId>
+            <artifactId>xptx-common-auth</artifactId>
             <version>${xptx.version}</version>
         </dependency>
         <dependency>
