@@ -26,5 +26,5 @@ public interface AuthProvider {
      * </pre>
      */
     @PostMapping(value = "/auth/permission")
-    R<Boolean> auth(@RequestHeader(HttpHeaders.AUTHORIZATION)  String authentication, @RequestParam("url") String url, @RequestParam("method") String method);
+    R<Boolean> auth(@RequestHeader(HttpHeaders.AUTHORIZATION) String authentication, @RequestParam("url") String url, @RequestParam("method") String method);
 }
