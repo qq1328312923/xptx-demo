@@ -24,6 +24,9 @@ public class BaseException extends RuntimeException implements Serializable {
     private String msg;
     private int code = 500;
 
+    public BaseException() {
+    }
+
     public BaseException(String msg) {
         super(msg);
         this.msg = msg;
